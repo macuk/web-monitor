@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+$:.unshift(File.expand_path('../lib', File.dirname(__FILE__)))
+require 'web-monitor'
+
+monitor = WebMonitor::Monitor.new(ARGV.first || 'config.yml')
+monitor.process

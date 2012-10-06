@@ -1,0 +1,5 @@
+response_time_limit: 3       # in seconds
+alert_mail: alert@domain.com # errors will be sent there
+urls_file: urls.csv          # sites to monitor
+log_file: web-monitor.log    # file with logs
+delay: 1                     # delay between requests
