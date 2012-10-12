@@ -1,10 +1,11 @@
 require 'minitest/autorun'
 require 'minitest/mock'
 require 'web-monitor/requester'
+require 'ostruct'
 
 class RequesterTest < MiniTest::Unit::TestCase
   def setup
-    @config = {'response_time_limit' => 3}
+    @config = OpenStruct.new(response_time_limit: 3)
     @r = WebMonitor::Requester.new(@config)
   end
 
@@ -25,7 +26,7 @@ class RequesterTest < MiniTest::Unit::TestCase
   end
 
   def test_timeout
-    config = {'response_time_limit' => 0.5}
+    config = OpenStruct.new(response_time_limit: 0.5)
     r = WebMonitor::Requester.new(config)
     r.benchmark = MyBenchmark.new
     r.check 'https://www.google.pl'

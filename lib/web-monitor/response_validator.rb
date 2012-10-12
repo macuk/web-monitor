@@ -5,7 +5,7 @@ module WebMonitor
 
     def initialize(time, status, config)
       @time, @status = time.to_f, status.to_i
-      @limit = config['response_time_limit'].to_f
+      @limit = config.response_time_limit
     end
 
     def valid?

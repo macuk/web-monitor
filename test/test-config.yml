@@ -1,0 +1,5 @@
+response_time_limit: 2.5
+alert_mail: test@domain-test.com
+urls_file: url-list.csv
+log_file: monitor.log
+delay: 1.5

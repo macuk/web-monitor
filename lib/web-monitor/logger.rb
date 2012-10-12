@@ -3,7 +3,7 @@ module WebMonitor
     require 'logger'
 
     def initialize(config)
-      @log = ::Logger.new(config['log_file'])
+      @log = ::Logger.new(config.log_file)
       @log.datetime_format = "%Y-%m-%d %H:%M:%S"
       @log.formatter = proc do |severity, datetime, progname, msg|
         "#{datetime} #{severity} #{msg}\n"

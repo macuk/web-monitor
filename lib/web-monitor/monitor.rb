@@ -1,17 +1,16 @@
 module WebMonitor
   class Monitor
-    require 'yaml'
     require 'csv'
 
     def initialize(config_file)
-      @config = YAML::load(File.open(config_file))
+      @config = Config.new(config_file)
       @logger = Logger.new(@config)
       @mailer = Mailer.new(@config)
       @requester = Requester.new(@config)
     end
 
     def process
-      CSV.foreach(@config['urls_file']) do |name, url|
+      CSV.foreach(@config.urls_file) do |name, url|
         begin
           @requester.check(url)
         rescue Exception => e
@@ -26,7 +25,7 @@ module WebMonitor
           @logger.error("#{name} (#{url}): #{v.error_msg}")
           @mailer.send("#{name} #{v.error_msg}")
         end
-        sleep @config['delay'].to_i
+        sleep @config.delay
       end
     end
   end

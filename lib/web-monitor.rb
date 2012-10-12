@@ -1,9 +1,6 @@
-module WebMonitor
-  VERSION = "0.0.1"
-end
-
-require 'web-monitor/logger.rb'
-require 'web-monitor/mailer.rb'
-require 'web-monitor/monitor.rb'
-require 'web-monitor/requester.rb'
-require 'web-monitor/response_validator.rb'
+require 'web-monitor/config'
+require 'web-monitor/logger'
+require 'web-monitor/mailer'
+require 'web-monitor/monitor'
+require 'web-monitor/requester'
+require 'web-monitor/response_validator'

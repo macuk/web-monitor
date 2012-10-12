@@ -9,8 +9,8 @@ module WebMonitor
     attr_writer :benchmark
 
     def initialize(config)
-      @limit = config['response_time_limit'].to_f
-      @timeout = @limit + 1
+      @limit = config.response_time_limit
+      @timeout = @limit + 1.0
       @benchmark = Benchmark
     end
 
@@ -20,7 +20,7 @@ module WebMonitor
         @time = time.real.to_f
       end
     rescue Timeout::Error
-      @time = @timeout.to_f
+      @time = @timeout
       @status = 0
     end
 

@@ -1,9 +1,10 @@
 require 'minitest/autorun'
 require 'web-monitor/response_validator'
+require 'ostruct'
 
 class ResponseValidatorTest < MiniTest::Unit::TestCase
   def setup
-    @config = {'response_time_limit' => 3}
+    @config = OpenStruct.new(response_time_limit: 3)
     @v = WebMonitor::ResponseValidator.new(1, 200, @config)
   end
 
