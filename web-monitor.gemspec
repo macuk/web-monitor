@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/web-monitor', __FILE__)
+require File.expand_path('../lib/web-monitor/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Piotr Macuk"]
@@ -13,5 +13,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "web-monitor"
   gem.require_paths = ["lib"]
-  gem.version       = '0.9.0'
+  gem.version       = WebMonitor::VERSION
 end
