@@ -1,24 +1,37 @@
-# Web::Monitor
+# WebMonitor
 
-TODO: Write a gem description
+Website monitoring tool by response time and status
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Install
 
-    gem 'web-monitor'
+    gem install web-monitor
 
-And then execute:
+Create config.yml file with following options
 
-    $ bundle
+    $ cat config.yml
+    response_time_limit: 3.0          # in seconds
+    alert_mail: login@somedomain.com  # errors will be sent there
+    urls_file: urls.csv               # file with site list to monitor
+    log_file: web-monitor.log         # file with logs
+    delay: 1.0                        # delay between requests (in seconds)
 
-Or install it yourself as:
+Create urls.csv file to monitor
 
-    $ gem install web-monitor
+    $ cat urls.csv
+    google,https://www.google.pl
+    bbc,http://www.bbc.co.uk
+    err1,http://aaa.bbb.ccc.ddd.com
+    err2,https://wp.pl
 
-## Usage
+Execute
 
-TODO: Write usage instructions here
+    $ web-monitor config.yml
+
+Read logfile
+
+    $ cat web-monitor.log
 
 ## Contributing
 
